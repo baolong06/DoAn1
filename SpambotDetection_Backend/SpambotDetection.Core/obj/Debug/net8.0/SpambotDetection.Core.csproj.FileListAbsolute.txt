@@ -1,0 +1,13 @@
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\bin\Debug\net8.0\SpambotDetection.Core.deps.json
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\bin\Debug\net8.0\SpambotDetection.Core.dll
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\bin\Debug\net8.0\SpambotDetection.Core.pdb
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.csproj.AssemblyReference.cache
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.AssemblyInfoInputs.cache
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.AssemblyInfo.cs
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.csproj.CoreCompileInputs.cache
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.sourcelink.json
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.dll
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\refint\SpambotDetection.Core.dll
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.pdb
+E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\ref\SpambotDetection.Core.dll
