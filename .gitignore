@@ -1,0 +1,19 @@
+# Dataset lớn
+cresci-2017.csv/
+
+# Build output .NET
+**/bin/
+**/obj/
+
+# NuGet packages
+**/packages/
+
+# SQLite database
+*.db
+*.db-shm
+*.db-wal
+
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
