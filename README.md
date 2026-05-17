@@ -53,11 +53,13 @@ Một số chỉ số thêm:
 - K tối ưu cho KNN graph: K = 3
 - Homophily graph: 0.9434 (93.4% cạnh nối cùng nhãn)
 
+**So sánh với các mô hình trong paper (TwiBot-22, Cresci-2017):**
+
+![So sánh với Paper](img/Picture10.png)
+
 ---
 
 ## Kiến Trúc Hệ Thống
-
-![System Architecture](images/01_system_arch.png)
 
 Hệ thống gồm 4 thành phần chính:
 
@@ -68,9 +70,17 @@ Hệ thống gồm 4 thành phần chính:
 | AI Server | Google Colab + Flask | Chạy mô hình GAT+MLP, trả kết quả predict |
 | Database | SQLite | Lưu lịch sử quét, blacklist, tài khoản người dùng |
 
-### Kiến trúc mô hình GAT+MLP
+### Kiến trúc tổng thể mô hình GAT+MLP
 
-![Model Architecture](images/02_model_arch.png)
+![Kiến trúc tổng thể GAT+MLP](img/Picture7.png)
+
+### Kiến trúc chi tiết nhánh GAT
+
+![Kiến trúc nhánh GAT](img/Picture3.png)
+
+### Kiến trúc chi tiết nhánh MLP
+
+![Kiến trúc nhánh MLP](img/Picture5.png)
 
 Tổng tham số: 9,798
 
@@ -148,6 +158,8 @@ social_spambots_1    →   991 users | label=1 (Bot)
 Tổng: 14,368 users | Bot rate: 75.8%
 ```
 
+![Load Dataset](img/Picture1.png)
+
 ---
 
 #### Bước 1.4 — Feature Engineering
@@ -206,17 +218,13 @@ K=3 cho kết quả tốt nhất vì cân bằng được giữa homophily và m
 
 **Biểu đồ 1 — Tối ưu K:**
 
-![KNN K Optimization](images/03_knn_opt.png)
+![KNN K Optimization](img/Picture2.png)
 
 **Biểu đồ 2 — Cấu trúc KNN Graph (80 nodes mẫu):**
 
-![KNN Graph Visualization](images/04_knn_graph.png)
+![KNN Graph Visualization](img/Picture4.png)
 
 > 40 Human (xanh) và 40 Bot (đỏ). Có thể thấy rõ Bot cluster riêng với nhau, Human cũng vậy — xác nhận homophily cao.
-
-**Biểu đồ 3 — So sánh K=3 / K=5 / K=20:**
-
-![K Comparison](images/05_k_compare.png)
 
 ```
 Thống kê graph cuối:
@@ -257,6 +265,8 @@ Best params: LR=8.98e-03 | Patience=80 | WD=3.96e-05
 Val AUC = 0.9960
 ```
 
+![Optuna Hyperparameter Search](img/Picture6.png)
+
 Do mất cân bằng nhãn (75.8% Bot), mình dùng class weights:
 ```
 Human weight = 2.07
@@ -278,18 +288,21 @@ AUC-ROC           : 0.9936
 F1 macro          : 0.9730
 ```
 
-**Biểu đồ kết quả (6 subplot):**
+**Biểu đồ kết quả (Loss, AUC-ROC, F1, Balanced Accuracy, Recall theo class, Confusion Matrix):**
 
-![Training Results](images/06_results.png)
+![Training Results](img/Picture9.png)
 
-| Vị trí | Nội dung |
-|---|---|
-| [0,0] | Loss curve — xác nhận không overfitting |
-| [0,1] | Val Accuracy và Val AUC theo epoch |
-| [0,2] | Confusion Matrix trên Test Set |
-| [1,0] | ROC Curve (AUC = 0.9936) |
-| [1,1] | Phân phối xác suất dự đoán cho Human vs Bot |
-| [1,2] | So sánh Precision, Recall, F1 theo class |
+**Loss curve (Train vs Val):**
+
+![Loss Curve](img/Picture8.png)
+
+**GCN Baseline — AUC-ROC:**
+
+![GCN AUC-ROC](img/Picture11.png)
+
+**GCN Baseline — Confusion Matrix:**
+
+![GCN Confusion Matrix](img/Picture12.png)
 
 Model lưu tại: `gat_mlp_cresci2017_v5.pt`
 
@@ -386,7 +399,13 @@ Tất cả passed — API sẵn sàng!
 | UC05 | Cấu hình API Endpoint | Admin only |
 | UC06 | Xem báo cáo thống kê | Admin only |
 
+### UC01 — Đăng nhập
+
+![Giao diện đăng nhập](img/Picture13.png)
+
 ### UC02 — Kiểm tra tài khoản đơn lẻ
+
+![Giao diện kiểm tra đơn lẻ](img/Picture14.png)
 
 Nhập thông số tài khoản cần kiểm tra:
 
@@ -407,11 +426,16 @@ Nhập thông số tài khoản cần kiểm tra:
 | `descLength` | int | Độ dài phần bio |
 
 Kết quả trả về:
+
+![Kết quả phân tích](img/Picture15.png)
+
 - 🔴 **Spambot** — nhiều khả năng là bot tự động
 - 🟢 **Real** — có vẻ là người thật
 - Độ tin cậy dưới 60% thì nên kiểm tra thêm bằng tay
 
 ### UC03 — Quét hàng loạt từ CSV
+
+![Quét CSV hàng loạt](img/Picture17.png)
 
 File CSV cần có header đúng cột:
 
@@ -422,6 +446,14 @@ geoEnabled, accountAgeDays, nameLength, descLength
 ```
 
 Sau khi quét xong, nhấn **"Xuất kết quả"** để lưu file CSV có thêm cột `Prediction` và `Confidence`.
+
+### UC04 — Lịch sử quét
+
+![Lịch sử quét](img/Picture16.png)
+
+### UC05 — Cấu hình API Endpoint
+
+![Cấu hình API](img/Picture18.png)
 
 ---
 
@@ -522,6 +554,7 @@ Split: 60% Train / 20% Val / 20% Test (stratified)
 DoAn1/
 ├── SpambotDetection_Backend/       # Ứng dụng WinForms C#
 ├── SpambotDetection_Frontend/      # Frontend
+├── img/                            # Hình ảnh README
 ├── cresci2017_gat_mlp_v5.ipynb    # Notebook train + deploy
 ├── supabase_schema.sql             # Schema database
 ├── .gitignore
