@@ -774,6 +774,7 @@ namespace demo_AI
             // 
             // btnFilter
             // 
+            this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(170)))));
             this.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFilter.FlatAppearance.BorderSize = 0;
@@ -782,7 +783,6 @@ namespace demo_AI
             this.btnFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
             this.btnFilter.Location = new System.Drawing.Point(572, 26);
-            this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(86, 32);
             this.btnFilter.TabIndex = 8;
@@ -791,6 +791,7 @@ namespace demo_AI
             // 
             // btnResetFilter
             // 
+            this.btnResetFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnResetFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
             this.btnResetFilter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResetFilter.FlatAppearance.BorderSize = 0;
@@ -799,7 +800,6 @@ namespace demo_AI
             this.btnResetFilter.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnResetFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
             this.btnResetFilter.Location = new System.Drawing.Point(665, 26);
-            this.btnResetFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(80, 32);
             this.btnResetFilter.TabIndex = 9;
@@ -808,6 +808,7 @@ namespace demo_AI
             // 
             // btnDeleteSelected
             // 
+            this.btnDeleteSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteSelected.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             this.btnDeleteSelected.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteSelected.Enabled = false;
@@ -817,7 +818,6 @@ namespace demo_AI
             this.btnDeleteSelected.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnDeleteSelected.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(81)))), ((int)(((byte)(73)))));
             this.btnDeleteSelected.Location = new System.Drawing.Point(752, 26);
-            this.btnDeleteSelected.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteSelected.Name = "btnDeleteSelected";
             this.btnDeleteSelected.Size = new System.Drawing.Size(68, 32);
             this.btnDeleteSelected.TabIndex = 10;
@@ -827,6 +827,7 @@ namespace demo_AI
             // 
             // btnExportHistory
             // 
+            this.btnExportHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportHistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(40)))), ((int)(((byte)(55)))));
             this.btnExportHistory.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExportHistory.FlatAppearance.BorderSize = 0;
@@ -835,7 +836,6 @@ namespace demo_AI
             this.btnExportHistory.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnExportHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
             this.btnExportHistory.Location = new System.Drawing.Point(826, 26);
-            this.btnExportHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportHistory.Name = "btnExportHistory";
             this.btnExportHistory.Size = new System.Drawing.Size(46, 32);
             this.btnExportHistory.TabIndex = 11;

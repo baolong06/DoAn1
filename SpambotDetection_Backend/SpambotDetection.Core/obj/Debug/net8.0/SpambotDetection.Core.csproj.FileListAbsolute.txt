@@ -11,3 +11,16 @@ E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\S
 E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\refint\SpambotDetection.Core.dll
 E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.pdb
 E:\Đồ án 1\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\ref\SpambotDetection.Core.dll
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\bin\Debug\net8.0\SpambotDetection.Core.deps.json
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\bin\Debug\net8.0\SpambotDetection.Core.dll
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\bin\Debug\net8.0\SpambotDetection.Core.pdb
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.csproj.AssemblyReference.cache
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.AssemblyInfoInputs.cache
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.AssemblyInfo.cs
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.csproj.CoreCompileInputs.cache
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.sourcelink.json
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.dll
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\refint\SpambotDetection.Core.dll
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\SpambotDetection.Core.pdb
+E:\git do an\SpambotDetection_Backend\SpambotDetection.Core\obj\Debug\net8.0\ref\SpambotDetection.Core.dll

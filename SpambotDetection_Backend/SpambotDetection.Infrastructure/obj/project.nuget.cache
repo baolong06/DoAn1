@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nhKzDUPEZyA=",
+  "dgSpecHash": "IAmQtWYDd6c=",
   "success": true,
-  "projectFilePath": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj",
+  "projectFilePath": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LuongBaoLong\\.nuget\\packages\\aspnetcore.healthchecks.npgsql\\9.0.0\\aspnetcore.healthchecks.npgsql.9.0.0.nupkg.sha512",
     "C:\\Users\\LuongBaoLong\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
@@ -67,9 +67,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "SpambotDetection.Infrastructure depends on System.IdentityModel.Tokens.Jwt (>= 8.0.4) but System.IdentityModel.Tokens.Jwt 8.0.4 was not found. System.IdentityModel.Tokens.Jwt 8.1.0 was resolved instead.",
-      "projectPath": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj",
+      "projectPath": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj",
       "warningLevel": 1,
-      "filePath": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj",
+      "filePath": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj",
       "libraryId": "System.IdentityModel.Tokens.Jwt",
       "targetGraphs": [
         "net8.0"

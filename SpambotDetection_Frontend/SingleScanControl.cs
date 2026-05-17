@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Net.Http;
 using System.Text;
@@ -36,6 +36,66 @@ namespace demo_AI
         {
             InitializeComponent();
             AttachEvents();
+        }
+
+        // ════════════════════════════════════════════════════════════
+        //  Responsive layout
+        // ════════════════════════════════════════════════════════════
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            ApplyResponsiveLayout();
+        }
+
+        private void ApplyResponsiveLayout()
+        {
+            if (pnlLeft == null || pnlMain == null || Width < 100) return;
+
+            int gap = 14;
+            int contentW = pnlMain.ClientSize.Width - pnlMain.Padding.Horizontal;
+
+            // Left = 53%, Right fills the rest
+            int leftW = (int)(contentW * 0.53) - gap / 2;
+            leftW = Math.Max(320, leftW);
+            pnlLeft.Width = leftW;
+
+            // Stretch input panels (pnlAccountName full width)
+            int inputW = pnlInputCard.ClientSize.Width - pnlInputCard.Padding.Horizontal;
+            if (pnlAccountName != null) pnlAccountName.Width = inputW;
+
+            // Half-width inputs (Followers/Following, StatusCount/Favourites, etc.)
+            int halfW = (inputW - 16) / 2;
+            halfW = Math.Max(120, halfW);
+            Panel[] leftCols = { pnlFollowers, pnlStatusCount, pnlListedCount, pnlLinkDensity };
+            Panel[] rightCols = { pnlFollowing, pnlFavourites, pnlAccountAge, pnlFollowerRatio };
+            foreach (var p in leftCols) if (p != null) p.Width = halfW;
+            foreach (var p in rightCols)
+            {
+                if (p != null)
+                {
+                    p.Width = halfW;
+                    p.Left = halfW + 16;
+                }
+            }
+
+            // Labels for right-column
+            Label[] rightLbls = { lblFollowing, lblFavourites, lblAccountAge, lblFollowerRatio };
+            foreach (var lbl in rightLbls)
+                if (lbl != null) lbl.Left = halfW + 16;
+
+            // Button row full width
+            if (pnlBtnRow != null) pnlBtnRow.Width = inputW;
+
+            // Result card: gauge + detail stretch to full right panel width
+            if (pnlGaugeBg != null)
+            {
+                int resultInner = pnlResultCard.ClientSize.Width - pnlResultCard.Padding.Horizontal;
+                pnlGaugeBg.Width = resultInner;
+                pnlResultBadge.Width = resultInner;
+                pnlDetailSection.Width = resultInner;
+                lblConfidencePct.Width = resultInner;
+                lblTimestamp.Width = resultInner;
+            }
         }
 
         // ════════════════════════════════════════════════════════════
@@ -321,10 +381,10 @@ namespace demo_AI
             }
 
             // Confidence gauge
-            int gaugeWidth = (int)(pnlGaugeBg.Width * (double)confidence / 100.0);
+            int gaugeWidth = (int)(pnlGaugeBg.Width * (double)confidence);
             pnlGaugeFill.Width = Math.Max(0, Math.Min(gaugeWidth, pnlGaugeBg.Width));
             pnlGaugeFill.BackColor = mainColor;
-            lblConfidencePct.Text = $"{confidence:F1}%";
+            lblConfidencePct.Text = $"{confidence * 100:F1}%";
             lblConfidencePct.ForeColor = mainColor;
 
             // Detail section

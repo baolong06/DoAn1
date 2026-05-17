@@ -1,12 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\\u0110\u1ED3 \u00E1n 1\\demo_AI_responsive\\",
-  "Documents": [],
+  "WorkspaceRootPath": "E:\\git do an\\SpambotDetection_Frontend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60ED2180-BEED-47F8-B5FA-CA8DB63CDBFC}|demo_AI.csproj|e:\\git do an\\spambotdetection_frontend\\historycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60ED2180-BEED-47F8-B5FA-CA8DB63CDBFC}|demo_AI.csproj|solutionrelative:historycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60ED2180-BEED-47F8-B5FA-CA8DB63CDBFC}|demo_AI.csproj|e:\\git do an\\spambotdetection_frontend\\historycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{60ED2180-BEED-47F8-B5FA-CA8DB63CDBFC}|demo_AI.csproj|solutionrelative:historycontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HistoryControl.cs",
+              "DocumentMoniker": "E:\\git do an\\SpambotDetection_Frontend\\HistoryControl.cs",
+              "RelativeDocumentMoniker": "HistoryControl.cs",
+              "ToolTip": "E:\\git do an\\SpambotDetection_Frontend\\HistoryControl.cs",
+              "RelativeToolTip": "HistoryControl.cs",
+              "ViewState": "AgIAAMEBAAAAAAAAAAAowM0BAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T04:04:43.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HistoryControl.cs [Design]",
+              "DocumentMoniker": "E:\\git do an\\SpambotDetection_Frontend\\HistoryControl.cs",
+              "RelativeDocumentMoniker": "HistoryControl.cs",
+              "ToolTip": "E:\\git do an\\SpambotDetection_Frontend\\HistoryControl.cs [Design]",
+              "RelativeToolTip": "HistoryControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T04:04:38.474Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

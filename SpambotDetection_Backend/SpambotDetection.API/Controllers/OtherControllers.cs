@@ -165,14 +165,29 @@ public sealed class ConfigController : ControllerBase
                 config.Description, config.IsSensitive, config.UpdatedAt)));
     }
 
-    /// <summary>Kiểm tra kết nối đến AI server (health check).</summary>
+    /// <summary>Kiểm tra kết nối đến AI server (health check). Ưu tiên localhost:8000.</summary>
     [HttpGet("health")]
-    [ProducesResponseType(typeof(ApiResponse<bool>), 200)]
+    [ProducesResponseType(typeof(ApiResponse<object>), 200)]
     public async Task<IActionResult> CheckHealth(CancellationToken ct)
     {
-        var isAlive = await _aiSvc.HealthCheckAsync(ct);
-        return Ok(new ApiResponse<bool>(isAlive, isAlive,
-            isAlive ? null : new ApiError("AI_UNREACHABLE", "Server AI không phản hồi. Kiểm tra Ngrok URL.")));
+        // Thử local trước
+        bool localOk = false;
+        try
+        {
+            using var cts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+            cts.CancelAfter(TimeSpan.FromSeconds(2));
+            var r = await new HttpClient().GetAsync("http://localhost:8000/health", cts.Token);
+            localOk = r.IsSuccessStatusCode;
+        }
+        catch { /* không có local server */ }
+
+        var isAlive = localOk || await _aiSvc.HealthCheckAsync(ct);
+        var source  = localOk ? "local (localhost:8000)" : "ngrok (remote)";
+
+        return Ok(new ApiResponse<object>(isAlive,
+            new { alive = isAlive, ai_source = source },
+            isAlive ? null : new ApiError("AI_UNREACHABLE",
+                "Server AI không phản hồi. Hãy chạy start_all.bat hoặc cấu hình Ngrok URL.")));
     }
 }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -41,6 +41,76 @@ namespace demo_AI
         {
             InitializeComponent();
             AttachEvents();
+        }
+
+        // ════════════════════════════════════════════════════════════
+        //  Responsive layout — tự scale khi resize
+        // ════════════════════════════════════════════════════════════
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            ApplyResponsiveLayout();
+        }
+
+        private void ApplyResponsiveLayout()
+        {
+            if (pnlKpiRow == null || Width < 100) return;
+
+            // ── KPI row: chia 4 card đều nhau với gap 10px ──
+            int kpiGap = 10;
+            int kpiW = pnlKpiRow.ClientSize.Width;
+            int totalGap = kpiGap * 3; // 3 khoảng giữa 4 card
+            int cardW = Math.Max(180, (kpiW - totalGap) / 4);
+            int cardH = pnlKpiRow.ClientSize.Height - pnlKpiRow.Padding.Vertical;
+
+            Panel[] kpis = { pnlKpi1, pnlKpi2, pnlKpi3, pnlKpi4 };
+            for (int i = 0; i < kpis.Length; i++)
+            {
+                kpis[i].SetBounds(i * (cardW + kpiGap), pnlKpiRow.Padding.Top, cardW, cardH);
+                // Accent bar luôn full width của card
+                var accent = kpis[i].Controls.Count > 0 ? kpis[i].Controls[0] as Panel : null;
+                if (accent != null) accent.Width = cardW;
+                // Icon luôn nằm góc phải
+                var icon = kpis[i].Controls.Count > 1 ? kpis[i].Controls[1] as Label : null;
+                if (icon != null) icon.Left = cardW - icon.Width - 14;
+            }
+
+            // ── Content area: pnlLeft 38%, pnlRight 62% (với gap 14px) ──
+            if (pnlContent == null) return;
+            int contentW = pnlContent.ClientSize.Width;
+            int gap = 14;
+            int leftW = (int)(contentW * 0.38) - gap / 2;
+            leftW = Math.Max(300, leftW);
+            pnlLeft.Width = leftW;
+
+            // Pie canvas chiều rộng theo card
+            if (pnlPieCanvas != null)
+                pnlPieCanvas.Width = pnlPieCard.ClientSize.Width - pnlPieCard.Padding.Horizontal;
+            if (pnlPieLegendRow != null)
+                pnlPieLegendRow.Width = pnlPieCard.ClientSize.Width - pnlPieCard.Padding.Horizontal;
+            if (lblPieHeader != null)
+                lblPieHeader.Width = pnlPieCard.ClientSize.Width - pnlPieCard.Padding.Horizontal;
+
+            // Conf bars chiều rộng
+            if (pnlConfBars != null)
+            {
+                pnlConfBars.Width = pnlConfCard.ClientSize.Width - pnlConfCard.Padding.Horizontal;
+                int barW = pnlConfBars.Width - 66 - 36; // label(66) + val(36)
+                barW = Math.Max(80, barW);
+                Panel[] bgBars = { pnlConfBar1Bg, pnlConfBar2Bg, pnlConfBar3Bg, pnlConfBar4Bg, pnlConfBar5Bg };
+                Label[] valLbls = { lblConfBar1Val, lblConfBar2Val, lblConfBar3Val, lblConfBar4Val, lblConfBar5Val };
+                foreach (var bg in bgBars) bg.Width = barW;
+                foreach (var vl in valLbls) vl.Left = 66 + barW + 4;
+            }
+
+            // Trend + TopList resize
+            if (pnlTrendCanvas != null)
+            {
+                pnlTrendCanvas.Width = pnlTrendCard.ClientSize.Width - pnlTrendCard.Padding.Horizontal;
+                pnlTrendCanvas.Invalidate();
+            }
+
+            pnlPieCanvas?.Invalidate();
         }
 
         // ════════════════════════════════════════════════════════════

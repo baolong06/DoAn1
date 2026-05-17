@@ -1,4 +1,4 @@
-﻿namespace demo_AI
+namespace demo_AI
 {
     partial class ConfigControl
     {
@@ -109,7 +109,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Padding = new System.Windows.Forms.Padding(21, 17, 21, 17);
+            this.pnlMain.Padding = new System.Windows.Forms.Padding(24, 20, 24, 20);
             this.pnlMain.Size = new System.Drawing.Size(900, 631);
             this.pnlMain.TabIndex = 0;
             // 
@@ -119,9 +119,9 @@
             this.pnlRight.Controls.Add(this.pnlLogCard);
             this.pnlRight.Controls.Add(this.pnlStatusCard);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlRight.Location = new System.Drawing.Point(480, 17);
+            this.pnlRight.Location = new System.Drawing.Point(483, 20);
             this.pnlRight.Name = "pnlRight";
-            this.pnlRight.Size = new System.Drawing.Size(399, 597);
+            this.pnlRight.Size = new System.Drawing.Size(393, 591);
             this.pnlRight.TabIndex = 1;
             // 
             // pnlLogCard
@@ -132,11 +132,11 @@
             this.pnlLogCard.Controls.Add(this.btnClearLog);
             this.pnlLogCard.Controls.Add(this.txtLog);
             this.pnlLogCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlLogCard.Location = new System.Drawing.Point(0, 260);
-            this.pnlLogCard.Margin = new System.Windows.Forms.Padding(0, 12, 0, 0);
+            this.pnlLogCard.Location = new System.Drawing.Point(0, 276);
+            this.pnlLogCard.Margin = new System.Windows.Forms.Padding(0, 16, 0, 0);
             this.pnlLogCard.Name = "pnlLogCard";
-            this.pnlLogCard.Padding = new System.Windows.Forms.Padding(14, 12, 14, 12);
-            this.pnlLogCard.Size = new System.Drawing.Size(399, 337);
+            this.pnlLogCard.Padding = new System.Windows.Forms.Padding(16, 14, 16, 14);
+            this.pnlLogCard.Size = new System.Drawing.Size(393, 315);
             this.pnlLogCard.TabIndex = 1;
             // 
             // lblLogHeader
@@ -167,7 +167,7 @@
             this.btnClearLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearLog.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.btnClearLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
-            this.btnClearLog.Location = new System.Drawing.Point(543, 12);
+            this.btnClearLog.Location = new System.Drawing.Point(537, 12);
             this.btnClearLog.Name = "btnClearLog";
             this.btnClearLog.Size = new System.Drawing.Size(77, 23);
             this.btnClearLog.TabIndex = 2;
@@ -187,7 +187,7 @@
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
             this.txtLog.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(621, 337);
+            this.txtLog.Size = new System.Drawing.Size(615, 331);
             this.txtLog.TabIndex = 3;
             this.txtLog.Text = "[系統] Nhật ký khởi động...\n";
             this.toolTip1.SetToolTip(this.txtLog, "Log ping, save, error sẽ hiện ở đây");
@@ -210,7 +210,8 @@
             this.pnlStatusCard.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlStatusCard.Location = new System.Drawing.Point(0, 0);
             this.pnlStatusCard.Name = "pnlStatusCard";
-            this.pnlStatusCard.Size = new System.Drawing.Size(399, 260);
+            this.pnlStatusCard.Padding = new System.Windows.Forms.Padding(4);
+            this.pnlStatusCard.Size = new System.Drawing.Size(393, 276);
             this.pnlStatusCard.TabIndex = 0;
             // 
             // lblStatusHeader
@@ -236,9 +237,10 @@
             this.pnlStatusBadge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
             this.pnlStatusBadge.Controls.Add(this.pnlStatusDotBg);
             this.pnlStatusBadge.Controls.Add(this.lblStatusLive);
-            this.pnlStatusBadge.Location = new System.Drawing.Point(17, 52);
+            this.pnlStatusBadge.Location = new System.Drawing.Point(17, 56);
             this.pnlStatusBadge.Name = "pnlStatusBadge";
-            this.pnlStatusBadge.Size = new System.Drawing.Size(386, 55);
+            this.pnlStatusBadge.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.pnlStatusBadge.Size = new System.Drawing.Size(365, 60);
             this.pnlStatusBadge.TabIndex = 2;
             // 
             // pnlStatusDotBg
@@ -272,9 +274,9 @@
             // 
             this.lblStatusUrl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.lblStatusUrl.Location = new System.Drawing.Point(17, 120);
+            this.lblStatusUrl.Location = new System.Drawing.Point(17, 130);
             this.lblStatusUrl.Name = "lblStatusUrl";
-            this.lblStatusUrl.Size = new System.Drawing.Size(111, 19);
+            this.lblStatusUrl.Size = new System.Drawing.Size(115, 19);
             this.lblStatusUrl.TabIndex = 3;
             this.lblStatusUrl.Text = "Endpoint";
             // 
@@ -282,9 +284,9 @@
             // 
             this.lblStatusUrlVal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblStatusUrlVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.lblStatusUrlVal.Location = new System.Drawing.Point(135, 120);
+            this.lblStatusUrlVal.Location = new System.Drawing.Point(135, 130);
             this.lblStatusUrlVal.Name = "lblStatusUrlVal";
-            this.lblStatusUrlVal.Size = new System.Drawing.Size(267, 19);
+            this.lblStatusUrlVal.Size = new System.Drawing.Size(247, 19);
             this.lblStatusUrlVal.TabIndex = 4;
             this.lblStatusUrlVal.Text = "—";
             this.lblStatusUrlVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -293,9 +295,9 @@
             // 
             this.lblStatusLatency.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusLatency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.lblStatusLatency.Location = new System.Drawing.Point(17, 147);
+            this.lblStatusLatency.Location = new System.Drawing.Point(17, 157);
             this.lblStatusLatency.Name = "lblStatusLatency";
-            this.lblStatusLatency.Size = new System.Drawing.Size(111, 19);
+            this.lblStatusLatency.Size = new System.Drawing.Size(115, 19);
             this.lblStatusLatency.TabIndex = 5;
             this.lblStatusLatency.Text = "Độ trễ (ms)";
             // 
@@ -303,9 +305,9 @@
             // 
             this.lblStatusLatencyVal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblStatusLatencyVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(212)))), ((int)(((byte)(170)))));
-            this.lblStatusLatencyVal.Location = new System.Drawing.Point(135, 147);
+            this.lblStatusLatencyVal.Location = new System.Drawing.Point(135, 157);
             this.lblStatusLatencyVal.Name = "lblStatusLatencyVal";
-            this.lblStatusLatencyVal.Size = new System.Drawing.Size(267, 19);
+            this.lblStatusLatencyVal.Size = new System.Drawing.Size(247, 19);
             this.lblStatusLatencyVal.TabIndex = 6;
             this.lblStatusLatencyVal.Text = "—";
             this.lblStatusLatencyVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -314,9 +316,9 @@
             // 
             this.lblStatusLastPing.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusLastPing.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.lblStatusLastPing.Location = new System.Drawing.Point(17, 175);
+            this.lblStatusLastPing.Location = new System.Drawing.Point(17, 184);
             this.lblStatusLastPing.Name = "lblStatusLastPing";
-            this.lblStatusLastPing.Size = new System.Drawing.Size(111, 19);
+            this.lblStatusLastPing.Size = new System.Drawing.Size(115, 19);
             this.lblStatusLastPing.TabIndex = 7;
             this.lblStatusLastPing.Text = "Lần ping cuối";
             // 
@@ -324,9 +326,9 @@
             // 
             this.lblStatusLastPingVal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblStatusLastPingVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.lblStatusLastPingVal.Location = new System.Drawing.Point(135, 175);
+            this.lblStatusLastPingVal.Location = new System.Drawing.Point(135, 184);
             this.lblStatusLastPingVal.Name = "lblStatusLastPingVal";
-            this.lblStatusLastPingVal.Size = new System.Drawing.Size(267, 19);
+            this.lblStatusLastPingVal.Size = new System.Drawing.Size(247, 19);
             this.lblStatusLastPingVal.TabIndex = 8;
             this.lblStatusLastPingVal.Text = "—";
             this.lblStatusLastPingVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -335,9 +337,9 @@
             // 
             this.lblStatusModel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusModel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.lblStatusModel.Location = new System.Drawing.Point(17, 203);
+            this.lblStatusModel.Location = new System.Drawing.Point(17, 211);
             this.lblStatusModel.Name = "lblStatusModel";
-            this.lblStatusModel.Size = new System.Drawing.Size(111, 19);
+            this.lblStatusModel.Size = new System.Drawing.Size(115, 19);
             this.lblStatusModel.TabIndex = 9;
             this.lblStatusModel.Text = "Model AI";
             // 
@@ -345,9 +347,9 @@
             // 
             this.lblStatusModelVal.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblStatusModelVal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.lblStatusModelVal.Location = new System.Drawing.Point(135, 203);
+            this.lblStatusModelVal.Location = new System.Drawing.Point(135, 211);
             this.lblStatusModelVal.Name = "lblStatusModelVal";
-            this.lblStatusModelVal.Size = new System.Drawing.Size(267, 19);
+            this.lblStatusModelVal.Size = new System.Drawing.Size(247, 19);
             this.lblStatusModelVal.TabIndex = 10;
             this.lblStatusModelVal.Text = "GAT + MLP";
             this.lblStatusModelVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -361,9 +363,9 @@
             this.btnRefreshStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefreshStatus.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnRefreshStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.btnRefreshStatus.Location = new System.Drawing.Point(17, 227);
+            this.btnRefreshStatus.Location = new System.Drawing.Point(17, 242);
             this.btnRefreshStatus.Name = "btnRefreshStatus";
-            this.btnRefreshStatus.Size = new System.Drawing.Size(146, 23);
+            this.btnRefreshStatus.Size = new System.Drawing.Size(160, 26);
             this.btnRefreshStatus.TabIndex = 11;
             this.btnRefreshStatus.Text = "🔄  Kiểm tra ngay";
             this.btnRefreshStatus.UseVisualStyleBackColor = false;
@@ -374,10 +376,10 @@
             this.pnlLeft.Controls.Add(this.pnlDbCard);
             this.pnlLeft.Controls.Add(this.pnlApiCard);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlLeft.Location = new System.Drawing.Point(21, 17);
+            this.pnlLeft.Location = new System.Drawing.Point(24, 20);
             this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Padding = new System.Windows.Forms.Padding(0, 0, 14, 0);
-            this.pnlLeft.Size = new System.Drawing.Size(459, 597);
+            this.pnlLeft.Padding = new System.Windows.Forms.Padding(0, 0, 16, 0);
+            this.pnlLeft.Size = new System.Drawing.Size(459, 591);
             this.pnlLeft.TabIndex = 0;
             // 
             // pnlDbCard
@@ -391,10 +393,11 @@
             this.pnlDbCard.Controls.Add(this.lblDbHint);
             this.pnlDbCard.Controls.Add(this.pnlBtnRowDb);
             this.pnlDbCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDbCard.Location = new System.Drawing.Point(0, 336);
-            this.pnlDbCard.Margin = new System.Windows.Forms.Padding(0, 12, 0, 0);
+            this.pnlDbCard.Location = new System.Drawing.Point(0, 352);
+            this.pnlDbCard.Margin = new System.Windows.Forms.Padding(0, 16, 0, 0);
             this.pnlDbCard.Name = "pnlDbCard";
-            this.pnlDbCard.Size = new System.Drawing.Size(445, 261);
+            this.pnlDbCard.Padding = new System.Windows.Forms.Padding(4);
+            this.pnlDbCard.Size = new System.Drawing.Size(443, 239);
             this.pnlDbCard.TabIndex = 1;
             // 
             // lblDbCardHeader
@@ -419,7 +422,7 @@
             // 
             this.lblDbPathHdr.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblDbPathHdr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
-            this.lblDbPathHdr.Location = new System.Drawing.Point(17, 52);
+            this.lblDbPathHdr.Location = new System.Drawing.Point(17, 56);
             this.lblDbPathHdr.Name = "lblDbPathHdr";
             this.lblDbPathHdr.Size = new System.Drawing.Size(394, 14);
             this.lblDbPathHdr.TabIndex = 2;
@@ -429,10 +432,10 @@
             // 
             this.pnlDbPathWrap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
             this.pnlDbPathWrap.Controls.Add(this.txtDbPath);
-            this.pnlDbPathWrap.Location = new System.Drawing.Point(17, 69);
+            this.pnlDbPathWrap.Location = new System.Drawing.Point(17, 74);
             this.pnlDbPathWrap.Name = "pnlDbPathWrap";
-            this.pnlDbPathWrap.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.pnlDbPathWrap.Size = new System.Drawing.Size(317, 33);
+            this.pnlDbPathWrap.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.pnlDbPathWrap.Size = new System.Drawing.Size(317, 36);
             this.pnlDbPathWrap.TabIndex = 3;
             // 
             // txtDbPath
@@ -442,7 +445,7 @@
             this.txtDbPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDbPath.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDbPath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.txtDbPath.Location = new System.Drawing.Point(9, 6);
+            this.txtDbPath.Location = new System.Drawing.Point(9, 7);
             this.txtDbPath.Name = "txtDbPath";
             this.txtDbPath.Size = new System.Drawing.Size(299, 18);
             this.txtDbPath.TabIndex = 0;
@@ -458,9 +461,9 @@
             this.btnBrowseDb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBrowseDb.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnBrowseDb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
-            this.btnBrowseDb.Location = new System.Drawing.Point(341, 69);
+            this.btnBrowseDb.Location = new System.Drawing.Point(341, 74);
             this.btnBrowseDb.Name = "btnBrowseDb";
-            this.btnBrowseDb.Size = new System.Drawing.Size(70, 33);
+            this.btnBrowseDb.Size = new System.Drawing.Size(72, 36);
             this.btnBrowseDb.TabIndex = 4;
             this.btnBrowseDb.Text = "📁  Duyệt";
             this.toolTip1.SetToolTip(this.btnBrowseDb, "Chọn file SQLite từ hộp thoại");
@@ -470,9 +473,9 @@
             // 
             this.lblDbHint.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblDbHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(76)))), ((int)(((byte)(86)))));
-            this.lblDbHint.Location = new System.Drawing.Point(17, 106);
+            this.lblDbHint.Location = new System.Drawing.Point(17, 116);
             this.lblDbHint.Name = "lblDbHint";
-            this.lblDbHint.Size = new System.Drawing.Size(394, 14);
+            this.lblDbHint.Size = new System.Drawing.Size(394, 15);
             this.lblDbHint.TabIndex = 5;
             this.lblDbHint.Text = "💡  Khuyến nghị đặt file .db cùng thư mục với .exe để tiện di chuyển";
             // 
@@ -481,9 +484,9 @@
             this.pnlBtnRowDb.BackColor = System.Drawing.Color.Transparent;
             this.pnlBtnRowDb.Controls.Add(this.btnSaveDb);
             this.pnlBtnRowDb.Controls.Add(this.btnTestDb);
-            this.pnlBtnRowDb.Location = new System.Drawing.Point(17, 130);
+            this.pnlBtnRowDb.Location = new System.Drawing.Point(17, 140);
             this.pnlBtnRowDb.Name = "pnlBtnRowDb";
-            this.pnlBtnRowDb.Size = new System.Drawing.Size(394, 45);
+            this.pnlBtnRowDb.Size = new System.Drawing.Size(394, 46);
             this.pnlBtnRowDb.TabIndex = 6;
             // 
             // btnSaveDb
@@ -540,7 +543,8 @@
             this.pnlApiCard.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlApiCard.Location = new System.Drawing.Point(0, 0);
             this.pnlApiCard.Name = "pnlApiCard";
-            this.pnlApiCard.Size = new System.Drawing.Size(445, 336);
+            this.pnlApiCard.Padding = new System.Windows.Forms.Padding(4);
+            this.pnlApiCard.Size = new System.Drawing.Size(443, 352);
             this.pnlApiCard.TabIndex = 0;
             // 
             // lblApiCardHeader
@@ -565,7 +569,7 @@
             // 
             this.lblNgrokHdr.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblNgrokHdr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
-            this.lblNgrokHdr.Location = new System.Drawing.Point(17, 52);
+            this.lblNgrokHdr.Location = new System.Drawing.Point(17, 56);
             this.lblNgrokHdr.Name = "lblNgrokHdr";
             this.lblNgrokHdr.Size = new System.Drawing.Size(394, 14);
             this.lblNgrokHdr.TabIndex = 2;
@@ -575,10 +579,10 @@
             // 
             this.pnlNgrokWrap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
             this.pnlNgrokWrap.Controls.Add(this.txtNgrokUrl);
-            this.pnlNgrokWrap.Location = new System.Drawing.Point(17, 69);
+            this.pnlNgrokWrap.Location = new System.Drawing.Point(17, 74);
             this.pnlNgrokWrap.Name = "pnlNgrokWrap";
-            this.pnlNgrokWrap.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.pnlNgrokWrap.Size = new System.Drawing.Size(394, 33);
+            this.pnlNgrokWrap.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.pnlNgrokWrap.Size = new System.Drawing.Size(394, 36);
             this.pnlNgrokWrap.TabIndex = 3;
             // 
             // txtNgrokUrl
@@ -588,7 +592,7 @@
             this.txtNgrokUrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNgrokUrl.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNgrokUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.txtNgrokUrl.Location = new System.Drawing.Point(9, 6);
+            this.txtNgrokUrl.Location = new System.Drawing.Point(9, 7);
             this.txtNgrokUrl.Name = "txtNgrokUrl";
             this.txtNgrokUrl.Size = new System.Drawing.Size(376, 18);
             this.txtNgrokUrl.TabIndex = 0;
@@ -599,9 +603,9 @@
             // 
             this.lblNgrokHint.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblNgrokHint.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(76)))), ((int)(((byte)(86)))));
-            this.lblNgrokHint.Location = new System.Drawing.Point(17, 106);
+            this.lblNgrokHint.Location = new System.Drawing.Point(17, 116);
             this.lblNgrokHint.Name = "lblNgrokHint";
-            this.lblNgrokHint.Size = new System.Drawing.Size(394, 14);
+            this.lblNgrokHint.Size = new System.Drawing.Size(394, 15);
             this.lblNgrokHint.TabIndex = 4;
             this.lblNgrokHint.Text = "💡  Lấy URL từ output cell Ngrok trong Google Colab";
             // 
@@ -609,7 +613,7 @@
             // 
             this.lblTimeoutHdr.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblTimeoutHdr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
-            this.lblTimeoutHdr.Location = new System.Drawing.Point(17, 130);
+            this.lblTimeoutHdr.Location = new System.Drawing.Point(17, 140);
             this.lblTimeoutHdr.Name = "lblTimeoutHdr";
             this.lblTimeoutHdr.Size = new System.Drawing.Size(180, 14);
             this.lblTimeoutHdr.TabIndex = 5;
@@ -619,10 +623,10 @@
             // 
             this.pnlTimeoutWrap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
             this.pnlTimeoutWrap.Controls.Add(this.nudTimeout);
-            this.pnlTimeoutWrap.Location = new System.Drawing.Point(17, 147);
+            this.pnlTimeoutWrap.Location = new System.Drawing.Point(17, 158);
             this.pnlTimeoutWrap.Name = "pnlTimeoutWrap";
-            this.pnlTimeoutWrap.Padding = new System.Windows.Forms.Padding(7, 4, 7, 4);
-            this.pnlTimeoutWrap.Size = new System.Drawing.Size(137, 33);
+            this.pnlTimeoutWrap.Padding = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.pnlTimeoutWrap.Size = new System.Drawing.Size(140, 36);
             this.pnlTimeoutWrap.TabIndex = 6;
             // 
             // nudTimeout
@@ -632,7 +636,7 @@
             this.nudTimeout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudTimeout.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nudTimeout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.nudTimeout.Location = new System.Drawing.Point(7, 4);
+            this.nudTimeout.Location = new System.Drawing.Point(7, 5);
             this.nudTimeout.Maximum = new decimal(new int[] {
             120,
             0,
@@ -644,7 +648,7 @@
             0,
             0});
             this.nudTimeout.Name = "nudTimeout";
-            this.nudTimeout.Size = new System.Drawing.Size(123, 23);
+            this.nudTimeout.Size = new System.Drawing.Size(126, 23);
             this.nudTimeout.TabIndex = 0;
             this.toolTip1.SetToolTip(this.nudTimeout, "Thời gian chờ tối đa mỗi request (giây)");
             this.nudTimeout.Value = new decimal(new int[] {
@@ -657,9 +661,9 @@
             // 
             this.lblTimeoutUnit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblTimeoutUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.lblTimeoutUnit.Location = new System.Drawing.Point(161, 154);
+            this.lblTimeoutUnit.Location = new System.Drawing.Point(163, 164);
             this.lblTimeoutUnit.Name = "lblTimeoutUnit";
-            this.lblTimeoutUnit.Size = new System.Drawing.Size(43, 19);
+            this.lblTimeoutUnit.Size = new System.Drawing.Size(50, 20);
             this.lblTimeoutUnit.TabIndex = 7;
             this.lblTimeoutUnit.Text = "giây";
             // 
@@ -667,7 +671,7 @@
             // 
             this.lblRetryHdr.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblRetryHdr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
-            this.lblRetryHdr.Location = new System.Drawing.Point(223, 130);
+            this.lblRetryHdr.Location = new System.Drawing.Point(228, 140);
             this.lblRetryHdr.Name = "lblRetryHdr";
             this.lblRetryHdr.Size = new System.Drawing.Size(180, 14);
             this.lblRetryHdr.TabIndex = 8;
@@ -677,10 +681,10 @@
             // 
             this.pnlRetryWrap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
             this.pnlRetryWrap.Controls.Add(this.nudRetry);
-            this.pnlRetryWrap.Location = new System.Drawing.Point(223, 147);
+            this.pnlRetryWrap.Location = new System.Drawing.Point(228, 158);
             this.pnlRetryWrap.Name = "pnlRetryWrap";
-            this.pnlRetryWrap.Padding = new System.Windows.Forms.Padding(7, 4, 7, 4);
-            this.pnlRetryWrap.Size = new System.Drawing.Size(137, 33);
+            this.pnlRetryWrap.Padding = new System.Windows.Forms.Padding(7, 5, 7, 5);
+            this.pnlRetryWrap.Size = new System.Drawing.Size(140, 36);
             this.pnlRetryWrap.TabIndex = 9;
             // 
             // nudRetry
@@ -690,14 +694,14 @@
             this.nudRetry.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudRetry.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.nudRetry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.nudRetry.Location = new System.Drawing.Point(7, 4);
+            this.nudRetry.Location = new System.Drawing.Point(7, 5);
             this.nudRetry.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.nudRetry.Name = "nudRetry";
-            this.nudRetry.Size = new System.Drawing.Size(123, 23);
+            this.nudRetry.Size = new System.Drawing.Size(126, 23);
             this.nudRetry.TabIndex = 0;
             this.toolTip1.SetToolTip(this.nudRetry, "Số lần retry khi request thất bại");
             this.nudRetry.Value = new decimal(new int[] {
@@ -710,9 +714,9 @@
             // 
             this.lblRetryUnit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblRetryUnit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.lblRetryUnit.Location = new System.Drawing.Point(367, 154);
+            this.lblRetryUnit.Location = new System.Drawing.Point(374, 164);
             this.lblRetryUnit.Name = "lblRetryUnit";
-            this.lblRetryUnit.Size = new System.Drawing.Size(43, 19);
+            this.lblRetryUnit.Size = new System.Drawing.Size(50, 20);
             this.lblRetryUnit.TabIndex = 10;
             this.lblRetryUnit.Text = "lần";
             // 
@@ -720,7 +724,7 @@
             // 
             this.lblApiKeyHdr.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblApiKeyHdr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(148)))), ((int)(((byte)(158)))));
-            this.lblApiKeyHdr.Location = new System.Drawing.Point(17, 192);
+            this.lblApiKeyHdr.Location = new System.Drawing.Point(17, 208);
             this.lblApiKeyHdr.Name = "lblApiKeyHdr";
             this.lblApiKeyHdr.Size = new System.Drawing.Size(394, 14);
             this.lblApiKeyHdr.TabIndex = 11;
@@ -730,10 +734,10 @@
             // 
             this.pnlApiKeyWrap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
             this.pnlApiKeyWrap.Controls.Add(this.txtApiKey);
-            this.pnlApiKeyWrap.Location = new System.Drawing.Point(17, 210);
+            this.pnlApiKeyWrap.Location = new System.Drawing.Point(17, 226);
             this.pnlApiKeyWrap.Name = "pnlApiKeyWrap";
-            this.pnlApiKeyWrap.Padding = new System.Windows.Forms.Padding(9, 6, 9, 6);
-            this.pnlApiKeyWrap.Size = new System.Drawing.Size(394, 33);
+            this.pnlApiKeyWrap.Padding = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.pnlApiKeyWrap.Size = new System.Drawing.Size(394, 36);
             this.pnlApiKeyWrap.TabIndex = 12;
             // 
             // txtApiKey
@@ -743,7 +747,7 @@
             this.txtApiKey.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApiKey.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(226)))), ((int)(((byte)(234)))));
-            this.txtApiKey.Location = new System.Drawing.Point(9, 6);
+            this.txtApiKey.Location = new System.Drawing.Point(9, 7);
             this.txtApiKey.Name = "txtApiKey";
             this.txtApiKey.PasswordChar = '●';
             this.txtApiKey.Size = new System.Drawing.Size(376, 18);
@@ -756,9 +760,9 @@
             this.chkShowApiKey.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkShowApiKey.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.chkShowApiKey.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(118)))), ((int)(((byte)(129)))));
-            this.chkShowApiKey.Location = new System.Drawing.Point(17, 246);
+            this.chkShowApiKey.Location = new System.Drawing.Point(17, 268);
             this.chkShowApiKey.Name = "chkShowApiKey";
-            this.chkShowApiKey.Size = new System.Drawing.Size(103, 17);
+            this.chkShowApiKey.Size = new System.Drawing.Size(110, 18);
             this.chkShowApiKey.TabIndex = 13;
             this.chkShowApiKey.Text = "Hiện API Key";
             this.chkShowApiKey.UseVisualStyleBackColor = false;
@@ -769,9 +773,9 @@
             this.pnlBtnRowApi.Controls.Add(this.btnSaveApi);
             this.pnlBtnRowApi.Controls.Add(this.btnPingApi);
             this.pnlBtnRowApi.Controls.Add(this.btnResetApi);
-            this.pnlBtnRowApi.Location = new System.Drawing.Point(17, 274);
+            this.pnlBtnRowApi.Location = new System.Drawing.Point(17, 296);
             this.pnlBtnRowApi.Name = "pnlBtnRowApi";
-            this.pnlBtnRowApi.Size = new System.Drawing.Size(394, 45);
+            this.pnlBtnRowApi.Size = new System.Drawing.Size(394, 46);
             this.pnlBtnRowApi.TabIndex = 14;
             // 
             // btnSaveApi

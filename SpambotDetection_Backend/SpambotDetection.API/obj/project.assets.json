@@ -2637,11 +2637,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.API\\SpambotDetection.API.csproj",
+      "projectUniqueName": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.API\\SpambotDetection.API.csproj",
       "projectName": "SpambotDetection.API",
-      "projectPath": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.API\\SpambotDetection.API.csproj",
+      "projectPath": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.API\\SpambotDetection.API.csproj",
       "packagesPath": "C:\\Users\\LuongBaoLong\\.nuget\\packages\\",
-      "outputPath": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.API\\obj\\",
+      "outputPath": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -2664,11 +2664,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.Core\\SpambotDetection.Core.csproj": {
-              "projectPath": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.Core\\SpambotDetection.Core.csproj"
+            "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.Core\\SpambotDetection.Core.csproj": {
+              "projectPath": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.Core\\SpambotDetection.Core.csproj"
             },
-            "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj": {
-              "projectPath": "E:\\Đồ án 1\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj"
+            "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj": {
+              "projectPath": "E:\\git do an\\SpambotDetection_Backend\\SpambotDetection.Infrastructure\\SpambotDetection.Infrastructure.csproj"
             }
           }
         }

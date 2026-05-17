@@ -8,12 +8,16 @@ using SpambotDetection.Core.Interfaces;
 namespace SpambotDetection.Infrastructure.Services;
 
 /// <summary>
-/// Gọi Flask API (chạy trên Google Colab + Ngrok tunnel).
-/// URL lấy động từ bảng api_config trong Supabase.
-/// ✅ TỐI ƯU: Cache config trong memory để tránh query DB mỗi request
+/// Gọi FastAPI AI Server.
+/// ✅ Ưu tiên server LOCAL (http://localhost:8000) — không cần Ngrok.
+/// ✅ Fallback: đọc ngrok_base_url từ bảng api_config trong Supabase.
+/// ✅ Cache config 60s để tránh query DB mỗi request.
 /// </summary>
 public sealed class AIService : IAIService
 {
+    // ── Địa chỉ local Python FastAPI server ──────────────────────────────────
+    private const string LocalAiUrl = "http://localhost:8000";
+
     private readonly HttpClient _http;
     private readonly IApiConfigRepository _configRepo;
     private readonly ILogger<AIService> _logger;
@@ -24,42 +28,73 @@ public sealed class AIService : IAIService
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
     };
 
-    // ✅ Cache config trong memory, TTL 60 giây
+    // ── Cache config ──────────────────────────────────────────────────────────
     private string? _cachedBaseUrl;
     private string? _cachedPredictEndpoint;
     private string? _cachedBatchEndpoint;
-    private int? _cachedMaxBatch;
+    private int?    _cachedMaxBatch;
     private DateTime _cacheExpiry = DateTime.MinValue;
     private readonly TimeSpan _cacheTtl = TimeSpan.FromSeconds(60);
 
     public AIService(HttpClient http, IApiConfigRepository configRepo, ILogger<AIService> logger)
     {
-        _http = http;
+        _http       = http;
         _configRepo = configRepo;
-        _logger = logger;
+        _logger     = logger;
     }
 
+    // ── Resolve URL: Local → DB (Ngrok fallback) ─────────────────────────────
     private async Task LoadConfigAsync(CancellationToken ct)
     {
-        if (DateTime.UtcNow < _cacheExpiry) return; // còn cache, bỏ qua
+        if (DateTime.UtcNow < _cacheExpiry) return;
 
-        _logger.LogDebug("Refreshing AI config cache...");
+        // 1️⃣ Thử kết nối local FastAPI trước
+        if (await IsReachableAsync(LocalAiUrl, ct))
+        {
+            _logger.LogDebug("✅ Dùng local AI server: {url}", LocalAiUrl);
+            _cachedBaseUrl          = LocalAiUrl;
+            _cachedPredictEndpoint  = "/predict";
+            _cachedBatchEndpoint    = "/predict/batch";
+            _cachedMaxBatch         = 500;
+            _cacheExpiry            = DateTime.UtcNow + _cacheTtl;
+            return;
+        }
+
+        // 2️⃣ Fallback: đọc ngrok_base_url từ Supabase
+        _logger.LogDebug("⚠️  Local AI server không phản hồi → fallback ngrok URL từ DB...");
 
         var url = await _configRepo.GetValueAsync("ngrok_base_url", ct);
         if (string.IsNullOrWhiteSpace(url))
             throw new InvalidOperationException(
-                "ngrok_base_url chưa được cấu hình. Vui lòng vào UC05 để cài đặt endpoint.");
+                "Không thể kết nối đến AI server (local:8000 hoặc ngrok).\n" +
+                "Hãy chạy python_ai_server hoặc vào UC05 để cấu hình Ngrok URL.");
 
-        _cachedBaseUrl = url.TrimEnd('/');
+        _cachedBaseUrl         = url.TrimEnd('/');
         _cachedPredictEndpoint = await _configRepo.GetValueAsync("predict_endpoint", ct) ?? "/predict";
-        _cachedBatchEndpoint = await _configRepo.GetValueAsync("batch_endpoint", ct) ?? "/predict/batch";
-        _cachedMaxBatch = int.TryParse(
+        _cachedBatchEndpoint   = await _configRepo.GetValueAsync("batch_endpoint", ct)   ?? "/predict/batch";
+        _cachedMaxBatch        = int.TryParse(
             await _configRepo.GetValueAsync("max_batch_size", ct), out var mb) ? mb : 500;
 
         _cacheExpiry = DateTime.UtcNow + _cacheTtl;
-        _logger.LogDebug("AI config cached until {exp}", _cacheExpiry);
+        _logger.LogInformation("AI config (ngrok): {url}", _cachedBaseUrl);
     }
 
+    private async Task<bool> IsReachableAsync(string baseUrl, CancellationToken ct)
+    {
+        try
+        {
+            using var cts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+            cts.CancelAfter(TimeSpan.FromSeconds(2));
+            var resp = await _http.GetAsync($"{baseUrl}/health", cts.Token);
+            return resp.IsSuccessStatusCode;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    // ── Public API ────────────────────────────────────────────────────────────
     public async Task<bool> HealthCheckAsync(CancellationToken ct = default)
     {
         try
@@ -112,7 +147,7 @@ public sealed class AIService : IAIService
             throw new ArgumentException(
                 $"Batch vượt giới hạn {_cachedMaxBatch} accounts/request.");
 
-        var payload = new { accounts = inputList.Select(BuildPayload).ToList() };
+        var payload  = new { accounts = inputList.Select(BuildPayload).ToList() };
         var response = await _http.PostAsJsonAsync(
             $"{_cachedBaseUrl}{_cachedBatchEndpoint}", payload, _jsonOpts, ct);
 
@@ -138,21 +173,21 @@ public sealed class AIService : IAIService
         );
     }
 
-    // ── Helpers ───────────────────────────────────────────────
+    // ── Helpers ───────────────────────────────────────────────────────────────
     private static Dictionary<string, object> BuildPayload(AccountFeatureInput i) => new()
     {
-        ["followers_count"] = i.FollowersCount,
-        ["friends_count"] = i.FriendsCount,
-        ["statuses_count"] = i.StatusesCount,
-        ["listed_count"] = i.ListedCount,
-        ["favourites_count"] = i.FavouritesCount,
-        ["verified"] = i.Verified,
-        ["default_profile"] = i.DefaultProfile,
+        ["followers_count"]       = i.FollowersCount,
+        ["friends_count"]         = i.FriendsCount,
+        ["statuses_count"]        = i.StatusesCount,
+        ["listed_count"]          = i.ListedCount,
+        ["favourites_count"]      = i.FavouritesCount,
+        ["verified"]              = i.Verified,
+        ["default_profile"]       = i.DefaultProfile,
         ["default_profile_image"] = i.DefaultProfileImage,
-        ["geo_enabled"] = i.GeoEnabled,
-        ["account_age_days"] = i.AccountAgeDays,
-        ["name_length"] = i.NameLength,
-        ["desc_length"] = i.DescLength
+        ["geo_enabled"]           = i.GeoEnabled,
+        ["account_age_days"]      = i.AccountAgeDays,
+        ["name_length"]           = i.NameLength,
+        ["desc_length"]           = i.DescLength
     };
 
     private static AIPredictionResult MapToResult(AIPredictData r)
@@ -170,39 +205,39 @@ public sealed class AIService : IAIService
         );
     }
 
-    // ── Private DTOs ─────────────────────────────────────────
+    // ── Private DTOs ──────────────────────────────────────────────────────────
     private sealed class AIPredictResponse
     {
-        public bool Success { get; set; }
+        public bool         Success { get; set; }
         public AIPredictData? Result { get; set; }
-        public string? Error { get; set; }
+        public string?      Error   { get; set; }
     }
 
     private sealed class AIPredictData
     {
-        public string Label { get; set; } = "unknown";
-        public double Confidence { get; set; }
-        public double ProbReal { get; set; }
-        public double ProbSpam { get; set; }
-        public string[]? FeatureCols { get; set; }
+        public string   Label         { get; set; } = "unknown";
+        public double   Confidence    { get; set; }
+        public double   ProbReal      { get; set; }
+        public double   ProbSpam      { get; set; }
+        public string[]? FeatureCols  { get; set; }
         public double[]? FeatureVector { get; set; }
     }
 
     private sealed class BatchPredictResponse
     {
-        public bool Success { get; set; }
-        public int Total { get; set; }
-        public int SpamCount { get; set; }
-        public int RealCount { get; set; }
-        public int ErrorCount { get; set; }
+        public bool               Success    { get; set; }
+        public int                Total      { get; set; }
+        public int                SpamCount  { get; set; }
+        public int                RealCount  { get; set; }
+        public int                ErrorCount { get; set; }
         public List<BatchResultItem> Results { get; set; } = [];
     }
 
     private sealed class BatchResultItem
     {
-        public int Index { get; set; }
-        public string Label { get; set; } = "unknown";
-        public double Confidence { get; set; }
-        public string? Error { get; set; }
+        public int     Index      { get; set; }
+        public string  Label      { get; set; } = "unknown";
+        public double  Confidence { get; set; }
+        public string? Error      { get; set; }
     }
 }

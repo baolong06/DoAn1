@@ -429,7 +429,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BooleanApiResponse"
+                  "$ref": "#/components/schemas/ObjectApiResponse"
                 }
               }
             }

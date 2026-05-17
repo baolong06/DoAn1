@@ -198,7 +198,7 @@ namespace demo_AI
             // Hiện số ngắn cho ID
             string shortId = scanId.Length >= 8 ? scanId.Substring(0, 8) + "…" : scanId;
 
-            int idx = dgvHistory.Rows.Add(shortId, account, prediction, $"{conf:F1}%", scannedAt, "👁");
+            int idx = dgvHistory.Rows.Add(shortId, account, prediction, $"{conf * 100:F1}%", scannedAt, "👁");
             dgvHistory.Rows[idx].Tag = item;   // lưu toàn bộ JToken
         }
 
@@ -278,7 +278,7 @@ namespace demo_AI
             int fillW = (int)(pnlDetailGaugeBg.Width * (double)conf / 100.0);
             pnlDetailGaugeFill.Width = Math.Max(0, Math.Min(fillW, pnlDetailGaugeBg.Width));
             pnlDetailGaugeFill.BackColor = mainColor;
-            lblDetailConfPct.Text = $"{conf:F1}%";
+            lblDetailConfPct.Text = $"{conf * 100:F1}%";
             lblDetailConfPct.ForeColor = mainColor;
 
             // Thông tin chi tiết
@@ -457,7 +457,9 @@ namespace demo_AI
                         string scanId = item["scanId"]?.ToString() ?? "";
                         string account = item["accountName"]?.ToString() ?? "";
                         string pred = item["prediction"]?.ToString() ?? "";
-                        string conf = item["confidence"]?.ToString() ?? "";
+                        string conf = item["confidence"] != null
+                            ? $"{item["confidence"].Value<decimal>() * 100:F1}"
+                            : "";
                         string date = item["scannedAt"]?.ToString() ?? "";
                         string bl = item["isBlacklisted"]?.ToString() ?? "false";
                         string by = item["scannedByUsername"]?.ToString() ?? "";

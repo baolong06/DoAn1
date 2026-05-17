@@ -9,7 +9,7 @@ namespace SpambotDetection.Infrastructure.Data;
 
 /// <summary>
 /// EF Core DbContext mapped to Supabase/PostgreSQL schema defined in supabase_schema.sql.
-/// Connection: postgresql://postgres.qeytthpoaakymfltnfpt:***@aws-1-ap-northeast-2.pooler.supabase.com:6543/postgres
+/// Connection: postgresql://postgres.zsejvpknqpchddkmlqdb:***@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres
 /// </summary>
 public sealed class AppDbContext : DbContext
 {

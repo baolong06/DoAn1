@@ -32,7 +32,7 @@ try
     // ─── Database: Supabase / PostgreSQL ─────────────────────
     // ✅ Pool settings đã được đưa vào appsettings.json (key-value format)
     var connectionString = builder.Configuration.GetConnectionString("Supabase")
-        ?? "Host=aws-1-ap-northeast-2.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.qeytthpoaakymfltnfpt;Password=thechienlan1;SSL Mode=Require;Trust Server Certificate=true;Minimum Pool Size=2;Maximum Pool Size=20;Connection Idle Lifetime=60;Keepalive=30";
+        ?? "Host=aws-1-ap-southeast-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.zsejvpknqpchddkmlqdb;Password=thechienlan1;SSL Mode=Require;Trust Server Certificate=true;Minimum Pool Size=2;Maximum Pool Size=20;Connection Idle Lifetime=60;Keepalive=30";
 
     var dataSourceBuilder = new NpgsqlDataSourceBuilder(connectionString);
     dataSourceBuilder.MapEnum<UserRole>("user_role");
@@ -72,36 +72,33 @@ try
     // ─── FluentValidation ─────────────────────────────────────
     builder.Services.AddScoped<IValidator<AccountFeaturesRequest>, AccountFeaturesValidator>();
 
-    // ─── Authentication: Supabase JWT (ES256 / EC Public Key) ──
+    // ─── Authentication: Supabase JWT (ES256 / ECDSA P-256) ──
     var supabaseUrl = builder.Configuration["Supabase:Url"]
         ?? throw new InvalidOperationException("Supabase:Url chua duoc cau hinh trong appsettings.");
 
-    var ecParameters = new ECParameters
+    // ✅ Fetch JWKS một lần khi startup → cache signing keys
+    // Supabase JWKS: GET {supabaseUrl}/auth/v1/.well-known/jwks.json
+    var jwksUri = $"{supabaseUrl}/auth/v1/.well-known/jwks.json";
+    List<SecurityKey> jwksKeys;
     {
-        Curve = ECCurve.NamedCurves.nistP256,
-        Q = new ECPoint
-        {
-            X = Base64UrlEncoder.DecodeBytes("7vnTXTmQonIQc16FOGMVVBZu2bfMTM0sg7spxFg6q78"),
-            Y = Base64UrlEncoder.DecodeBytes("F6eR2tP-RsLDI6-TBYEoM2AkgNCqbQ5aILVZ2Rd9g2I")
-        }
-    };
-    var ecdsa = ECDsa.Create(ecParameters);
-    var ecSecurityKey = new ECDsaSecurityKey(ecdsa)
-    {
-        KeyId = "fb70981c-0fae-483d-ae3e-06abe26cad42"
-    };
+        using var jwksClient = new HttpClient();
+        var jwksJson = jwksClient.GetStringAsync(jwksUri).GetAwaiter().GetResult();
+        var jwks = new JsonWebKeySet(jwksJson);
+        jwksKeys = jwks.GetSigningKeys().ToList();
+        Log.Information("JWKS loaded: {count} key(s) from {uri}", jwksKeys.Count, jwksUri);
+    }
 
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(opts =>
         {
             // ✅ Giữ nguyên tên claim gốc từ JWT (sub, role, ...)
-            // Nếu không set false, .NET tự đổi "sub" → NameIdentifier URI dài
             opts.MapInboundClaims = false;
+            opts.RequireHttpsMetadata = true;
 
             opts.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = ecSecurityKey,
+                IssuerSigningKeys = jwksKeys,   // EC public keys từ Supabase JWKS
                 ValidateIssuer = true,
                 ValidIssuer = supabaseUrl + "/auth/v1",
                 ValidateAudience = false,
